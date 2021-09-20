@@ -1,0 +1,38 @@
+{
+  "name": "pet-beauty-pageant",
+  "version": "1.0.0",
+  "description": "A beauty pageant app for pet lovers to upload their favourite animal pictures, comment and vote on their favorite.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seeds": "node seeds/index.js",
+    "dev": "nodemon index",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjos7/pet-beauty-pageant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjos7/pet-beauty-pageant/issues"
+  },
+  "homepage": "https://github.com/mjos7/pet-beauty-pageant#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.3",
+    "express-session": "^1.17.2",
+    "handlebars": "^4.7.7",
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.6.5"
+  },
+  "devDependencies": {
+    "jest": "^27.2.0",
+    "nodemon": "^2.0.12"
+  }
+}

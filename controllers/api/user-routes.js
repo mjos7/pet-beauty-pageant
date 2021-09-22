@@ -23,19 +23,19 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ['id', 'title', 'type', 'image', 'created_at'] // CHECK 
+        attributes: ['id', 'name', 'type', 'image', 'created_at'] // CHECK 
       },
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'created_at'],
         include: {
           model: Post,
-          attributes: ['title']
+          attributes: ['name']
         }
       },
       {
         model: Post,
-        attributes: ['title'],
+        attributes: ['name'],
         through: Vote,
         as: 'voted_posts'
       }

@@ -13,8 +13,9 @@ class Post extends Model {
         },
         attributes: [
           'id',
-          'post_url',
-          'title',
+          'pet_type',
+          'name',
+          'image',
           'created_at',
           [
             sequelize.literal(
@@ -53,17 +54,22 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+
+    name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
-    post_url: {
+
+    pet_type: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isURL: true,
-      },
+      allowNull: true,
     },
+
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+
     user_id: {
       type: DataTypes.INTEGER,
       references: {

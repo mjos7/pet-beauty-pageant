@@ -9,8 +9,9 @@ router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
       'id',
-      'post_url',
-      'title',
+      'pet_type',
+      'name',
+      'image',
       'created_at',
       [
         sequelize.literal(
@@ -49,8 +50,9 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
-      'title',
+      'pet_type',
+      'name',
+      'image',
       'created_at',
       [
         sequelize.literal(
@@ -88,10 +90,10 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-  // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+  // expects {name: 'Taskmaster goes public!', pet_type: 'https://taskmaster.com/press', user_id: 1}
   Post.create({
-    title: req.body.title,
-    post_url: req.body.post_url,
+    name: req.body.name,
+    pet_type: req.body.pet_type,
     user_id: req.session.user_id,
   })
     .then(dbPostData => res.json(dbPostData))
@@ -120,7 +122,7 @@ router.put('/upvote', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
-      title: req.body.title,
+      name: req.body.name,
     },
     {
       where: {

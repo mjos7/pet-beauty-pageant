@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
     });
 });
 
-//get one user
 router.get('/:id', (req, res) => {
   User.findOne({
     attributes: { exclude: ['password'] },
@@ -23,7 +22,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ['id', 'name', 'type', 'image', 'created_at'] // CHECK 
+        attributes: ['id', 'name', 'pet_type', 'image', 'created_at']
       },
       {
         model: Comment,
@@ -54,8 +53,8 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// create post
 router.post('/', (req, res) => {
+  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   User.create({
     username: req.body.username,
     email: req.body.email,
@@ -76,8 +75,8 @@ router.post('/', (req, res) => {
     });
 });
 
-// log in route
 router.post('/login', (req, res) => {
+  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
     where: {
       email: req.body.email
@@ -105,7 +104,6 @@ router.post('/login', (req, res) => {
   });
 });
 
-// log out route
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
@@ -117,8 +115,9 @@ router.post('/logout', (req, res) => {
   }
 });
 
-// edit request
 router.put('/:id', (req, res) => {
+  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+
   // pass in req.body instead to only update what's passed through
   User.update(req.body, {
     individualHooks: true,
@@ -139,7 +138,6 @@ router.put('/:id', (req, res) => {
     });
 });
 
-// delete post
 router.delete('/:id', (req, res) => {
   User.destroy({
     where: {

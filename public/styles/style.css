@@ -49,24 +49,27 @@ li {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 200;
   display: inline-block;
   margin-top: 5px;
+  margin-bottom: 40px;
 }
 
 img {
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
   margin-right: 30px;
   border-radius: 10px;
 }
 
 .post {
   display: flex;
-  margin-bottom: 50px;
   line-height: 150%;
   align-content: space-between;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 50px;
 }
 
 header {
@@ -104,6 +107,26 @@ header a {
 header a {
   padding-top: 20px;
   font-weight: 200;
+}
+
+.vote {
+  vertical-align: baseline;
+  margin-right: 10px;
+  margin-top: 0px;
+}
+
+.votes {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.fa-chevron-circle-up {
+  color: #225ca3;
+}
+
+.fa-chevron-circle-up:hover {
+  color: #b5b5b5;
+  cursor: pointer;
 }
 
 /* NEW STYLES END */
@@ -228,9 +251,35 @@ main {
 }
 
 footer {
+  background-color: #333;
+  color: white;
   border-top: 1px solid #ccc;
   display: flex;
   justify-content: center;
   padding: 1%;
   font-size: 110%;
+}
+
+@media only screen and (max-width: 600px) {
+  .post {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .vote {
+    margin-bottom: 20px;
+  }
+
+  .pet-type {
+    display: none;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .comment-by {
+    display: none;
+  }
 }

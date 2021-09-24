@@ -19,7 +19,7 @@ a {
 }
 
 a:hover {
-  color: #3486eb;
+  color: #d3d3d3;
 }
 
 button {
@@ -67,7 +67,6 @@ img {
   display: flex;
   line-height: 150%;
   align-content: space-between;
-  width: 80%;
   margin: auto;
   margin-bottom: 50px;
 }
@@ -125,8 +124,17 @@ header a {
 }
 
 .fa-chevron-circle-up:hover {
-  color: #b5b5b5;
+  color: #d3d3d3;
   cursor: pointer;
+}
+
+.image-btn {
+  background-color: #aeaeae;
+  margin-bottom: 30px;
+}
+
+.image-btn:hover {
+  background-color: #d3d3d3;
 }
 
 /* NEW STYLES END */
@@ -183,24 +191,25 @@ main {
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: #225ca3;
-  font-size: 100%;
-  font-weight: bold;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 200;
   transition: color 0.1s;
   margin-left: 16px;
+  margin-right: 20px;
 }
 
 .btn-no-style:hover {
   background: none;
-  color: #3486eb;
+  color: #d3d3d3;
 }
 
 .delete-post-btn {
-  background-color: #d41414;
+  background-color: #ff715a;
 }
 
 .delete-post-btn:hover {
-  background-color: #ff643d;
+  background-color: #ff715a;
 }
 
 .post .title span {
@@ -215,12 +224,7 @@ main {
 }
 
 .upvote-btn {
-  background-color: #197d0f;
   transition: background-color 0.1s;
-}
-
-.upvote-btn:hover {
-  background-color: #1f9c13;
 }
 
 .comment-form {
@@ -272,6 +276,10 @@ footer {
 
   .pet-type {
     display: none;
+  }
+
+  h1 {
+    font-size: 25px;
   }
 
   .title {

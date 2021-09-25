@@ -8,7 +8,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const helpers = require('./utils/helpers');
 const hbs = exphbs.create({ helpers });
 const upload = require('./controllers/uploads/multer')
-const cloudinary = require('./controllers/uploads/cloudinary');
+// const cloudinary = require('./controllers/uploads/cloudinary');
 const fs = require('fs');
 const { url } = require('inspector');
 
@@ -60,7 +60,7 @@ app.use('/upload-images',upload.array('image'),async(req, res)=>{
 });
 
 // turn on routes
- app.use(routes);
+//  app.use(routes);
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {

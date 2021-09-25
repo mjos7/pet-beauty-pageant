@@ -27,7 +27,34 @@ cloudinary.config({
 //         })
 //     })
 // }
-router.post("/", upload.single("file"), async (req, res) => {
+
+// router.post('/upload-images',upload.array('image'),async(req, res)=>{
+//   const uploader = async (path) => await cloudinary.uploads(path, 'Images')
+//   if (req.method === 'POST') {
+//     const urls = [];
+//     const files = req.files;
+    
+//     for(const files of files){
+//       const { path } = file;
+
+//       const newPath = await uploader(path);
+//       url.push(newPath);
+//       fs.unlinkSync(path);
+//     }
+
+//     res.status(200).json({
+//       message: 'Images uploaded succesfully!',
+//       data:urls
+//     })
+//   }
+//   else{
+//     res.status(405).json({
+//       err:'Images not uploaded successfully.'
+//     })
+//   }
+// });
+
+router.post("/upload-images", upload.single("file"), async (req, res) => {
     const upload = await cloudinary.uploader.upload(
       req.file.path,
       (error, result) => {

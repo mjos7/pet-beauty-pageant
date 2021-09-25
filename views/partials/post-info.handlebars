@@ -1,0 +1,27 @@
+<article class='post'>
+
+  <img
+    src='https://www.a2048.com/wp-content/uploads/2019/07/bc4a27df619fe52ade14f0d5a82d0f69.jpg'
+    alt=''
+  />
+  <div class='title'>
+    <i class='fas fa-chevron-circle-up fa-2x vote upvote-btn'></i>
+    <a href='/post/{{id}}'><h1>{{name}}</h1></a>
+    <span class="pet-type">&nbsp;&nbsp;({{pet_type}})</span>
+    <div class='meta votes'>
+      {{vote_count}}
+      {{format_plural 'vote' vote_count}}
+
+    </div>
+    <div>
+      <span class="comment-by">Uploaded by
+      {{user.username}}
+      on
+      {{format_date created_at}}
+    |</span>
+    <a href='/post/{{id}}'>{{comments.length}}
+      {{format_plural 'comment' comments.length}}</a>
+  </div>
+
+</article>
+

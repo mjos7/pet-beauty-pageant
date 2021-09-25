@@ -16,7 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sess = {
-  secret: 'Super secret',
+  secret: 'Super secret secret',
   cookie: {},
   resave: false,
   saveUninitialized: true,
@@ -35,7 +35,7 @@ app.use(session(sess));
 // app.use(bodyParser.json());
 
 // turn on routes
- app.use(routes);
+app.use(routes);
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {

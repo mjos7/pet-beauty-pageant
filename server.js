@@ -8,7 +8,6 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const helpers = require('./utils/helpers');
 const hbs = exphbs.create({ helpers });
 const upload = require('./controllers/uploads/multer')
-// const cloudinary = require('./controllers/uploads/cloudinary');
 const fs = require('fs');
 const { url } = require('inspector');
 
@@ -31,8 +30,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(session(sess));
-// app.use(bodyParser.urlencoded({extended:false}));
-// app.use(bodyParser.json());
 
 // turn on routes
 app.use(routes);

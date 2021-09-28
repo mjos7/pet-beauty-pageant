@@ -9,7 +9,7 @@ async function newFormHandler(event) {
   formData.append('name', name);
   formData.append('pet_type', pet_type);
   formData.append('image', image);
-
+console.log(formData, name, pet_type, image);
   const response = await fetch(`/api/posts`, {
     method: 'POST',
     body: formData,

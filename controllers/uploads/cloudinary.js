@@ -1,14 +1,12 @@
-var multer = require("multer");
-var upload = multer({ dest: "uploads/" }); 
-const fs = require("fs");
- const cloudinary = require("cloudinary").v2;
-require('dotenv').config();
+// var multer = require("multer");
+// var upload = multer({ dest: "uploads/" });
+// const fs = require("fs");
+require("dotenv").config();
 
-const router = require('express').Router();
+// const router = require('express').Router();
 
 // dotenv.config();
-console.log(cloudinary.config());
-
+// console.log(cloudinary.config());
 
 // router.post("/upload-images", upload.single("file"), async (req, res) => {
 //   console.log(req);
@@ -19,7 +17,29 @@ console.log(cloudinary.config());
 //         return result;
 //       }
 //     );
-//     res.json(upload);  
+//     res.json(upload);
 // });
 
-module.exports = router;
+// module.exports = router;
+
+const cloudinary = require("cloudinary").v2;
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "Explorer",
+    allowedFormats: ["jpeg", "png", "jpg"],
+  },
+});
+
+module.exports = {
+  cloudinary,
+  storage,
+};

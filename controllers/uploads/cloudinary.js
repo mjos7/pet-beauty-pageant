@@ -10,16 +10,16 @@ const router = require('express').Router();
 console.log(cloudinary.config());
 
 
-router.post("/upload-images", upload.single("file"), async (req, res) => {
-  console.log(req);
-    const upload = await cloudinary.uploader.upload(
-      req.file.path,
-      (error, result) => {
-        if (error) console.error(error);
-        return result;
-      }
-    );
-    res.json(upload);  
-});
+// router.post("/upload-images", upload.single("file"), async (req, res) => {
+//   console.log(req);
+//     const upload = await cloudinary.uploader.upload(
+//       req.file.path,
+//       (error, result) => {
+//         if (error) console.error(error);
+//         return result;
+//       }
+//     );
+//     res.json(upload);  
+// });
 
 module.exports = router;

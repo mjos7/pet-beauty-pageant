@@ -2,6 +2,11 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Post, User, Comment, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
+var multer = require("multer");
+var upload = multer({ dest: "uploads/" }); 
+const fs = require("fs");
+ const cloudinary = require("cloudinary").v2;
+require('dotenv').config();
 
 // get all users
 router.get('/', (req, res) => {
@@ -89,18 +94,27 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
-  // expects {name: 'Taskmaster goes public!', pet_type: 'https://taskmaster.com/press', user_id: 1}
-  Post.create({
-    name: req.body.name,
-    pet_type: req.body.pet_type,
-    user_id: req.session.user_id,
-  })
-    .then(dbPostData => res.json(dbPostData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+router.post('/', /*withAuth*/ upload.fields([{ name: 'image', maxCount: 1 }]), async (req, res) => {
+console.log(req.file);
+  const upload = await cloudinary.uploader.upload(
+    req.file.path,
+    (error, result) => {
+      if (error) console.error(error);
+      return result;
+    }
+  );
+  console.log(upload);
+  // Post.create({
+  //   name: req.body.name,
+  //   pet_type: req.body.pet_type,
+  //   user_id: req.session.user_id,
+  //   image: 
+  // })
+    // .then(dbPostData => res.json(dbPostData))
+    // .catch(err => {
+    //   console.log(err);
+    //   res.status(500).json(err);
+    // });
 });
 
 router.put('/upvote', withAuth, (req, res) => {

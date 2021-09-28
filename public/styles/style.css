@@ -13,17 +13,17 @@ html {
 
 a {
   text-decoration: none;
-  color: #225ca3;
+  color: #91309a;
   font-weight: bold;
   transition: color 0.1s;
 }
 
 a:hover {
-  color: #d3d3d3;
+  color: #a71db3;
 }
 
 button {
-  background-color: #225ca3;
+  background-color: #ae3fb9;
   border: 0;
   padding: 1%;
   color: white;
@@ -34,15 +34,13 @@ button {
 }
 
 button:hover {
-  background-color: #3486eb;
+  background-color: #be6bc6;
 }
 
 .post-list {
   margin: 0;
   padding: 0;
 }
-
-/* NEW STYLES START */
 
 li {
   list-style-type: none;
@@ -61,6 +59,20 @@ img {
   width: 200px;
   margin-right: 30px;
   border-radius: 10px;
+}
+
+#title {
+  font-size: 70px;
+  color: white;
+  font-weight: 300;
+  text-align: center;
+  position: relative;
+  top: 90px;
+  text-shadow: 2px 2px #ae3fb9;
+}
+
+.nav-bar {
+  margin-top: -60 !important;
 }
 
 .post {
@@ -83,7 +95,7 @@ header {
 header {
   text-align: center;
   font-size: 14px;
-  padding: 0px 0 220px;
+  padding: 0px 0 150px;
   background-image: url('../images/chi-wow-wow.jpg');
   background-position: center;
   background-size: cover;
@@ -115,17 +127,17 @@ header a {
 }
 
 .votes {
-  font-size: 20px;
+  font-size: 25px;
   margin-bottom: 15px;
+  color: #573559;
 }
 
 .fa-chevron-circle-up {
-  color: #225ca3;
+  color: #ffffff;
 }
 
-.fa-chevron-circle-up:hover {
-  color: #d3d3d3;
-  cursor: pointer;
+#vote-btn .fas {
+  margin-left: 20px;
 }
 
 .image-btn {
@@ -134,10 +146,8 @@ header a {
 }
 
 .image-btn:hover {
-  background-color: #d3d3d3;
+  background-color: #be6bc6;
 }
-
-/* NEW STYLES END */
 
 textarea,
 input {
@@ -201,7 +211,7 @@ main {
 
 .btn-no-style:hover {
   background: none;
-  color: #d3d3d3;
+  color: #be6bc6;
 }
 
 .delete-post-btn {
@@ -227,6 +237,14 @@ main {
   transition: background-color 0.1s;
 }
 
+#vote-btn {
+  padding: 15px 10px 12px 20px;
+  color: white;
+  font-size: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
 .comment-form {
   margin-bottom: 5%;
 }
@@ -237,7 +255,7 @@ main {
 }
 
 .comment:nth-child(odd) {
-  background-color: #fff5eb;
+  background-color: #f6f0ff;
 }
 
 .comment .meta {
@@ -289,5 +307,12 @@ footer {
 
   .comment-by {
     display: none;
+  }
+
+  #vote-btn {
+    font-size: 20px;
+    padding: 17px 5px 0px 16px;
+    margin-right: 30px;
+    margin-bottom: 10px;
   }
 }

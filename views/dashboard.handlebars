@@ -1,17 +1,17 @@
 <section>
   <h2>Nominate Your Pet!</h2>
 
-  <form class='new-post-form'>
+  <form id='post-form' class='new-post-form' enctype="multipart/form-data">
     <div>
       <label for='post-name'>Name</label>
-      <input type='text' id='post-name' name='post-name' />
+      <input type='text' id='post-name' name='name' />
     </div>
     <div>
       <label for='pet_type'>Pet Type</label>
       <input id='pet_type' name='pet_type' />
     </div>
     <div>
-      <button type='button' class='image-btn'>Add Image</button>
+      <input type="file" name="image" id="image" />
     </div>
     <button type='submit' class='btn'>Create</button>
   </form>

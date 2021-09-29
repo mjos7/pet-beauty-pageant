@@ -14,21 +14,17 @@
   <body>
     <div class='wrapper'>
       <header class='header'>
-        <div class='nav-bar'>
-          <h1>
-            <a href='/'>Pet Beauty Pageant</a>
-          </h1>
-        </div>
+        <h1>
+          <a href='/'>Pet Beauty Pageant</a>
+        </h1>
         <h2 id='title'>Flaunt Your Stuff</h2>
         <nav>
           {{#if loggedIn}}
-            <div class='nav-bar'>
             <a href='/dashboard'>dashboard</a>
             <button id='logout' class='btn-no-style'>logout</button>
           {{else}}
             <a href='/login'>login</a>
           {{/if}}
-          </div>
         </nav>
       </header>
       <main>

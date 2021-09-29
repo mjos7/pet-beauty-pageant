@@ -1,20 +1,11 @@
 async function newFormHandler(event) {
   event.preventDefault();
-
-  const name = document.querySelector('input[name="post-name"]').value;
-  const pet_type = document.querySelector('input[name="post-pet_type"]').value;
-  // const image = document.querySelector('input[name="post-image"]').value;
+  const formElem = document.querySelector('#post-form')
+  const formData = new FormData(formElem);
 
   const response = await fetch(`/api/posts`, {
     method: 'POST',
-    body: JSON.stringify({
-      name,
-      pet_type,
-      // image,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    body: formData,
   });
 
   if (response.ok) {

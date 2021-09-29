@@ -10,9 +10,20 @@ async function newFormHandler(event) {
   formData.append('pet_type', pet_type);
   formData.append('image', image);
 
+  let fields = {
+    name,
+    pet_type,
+    image
+  }
+
+  console.log(fields)
+
   const response = await fetch(`/api/posts`, {
     method: 'POST',
-    body: formData,
+    body: JSON.stringify(fields),
+    headers: {
+      'Content-Type': 'application/json',
+  },
   });
 
   if (response.ok) {

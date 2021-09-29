@@ -103,7 +103,8 @@ router.post(
   // /*withAuth*/ upload.fields([{ name: "image", maxCount: 1 }]),
   upload.single("image"),
   async (req, res) => {
-    // console.log(req.file);
+    console.log(req.body)
+    console.log(req.file);
     // const upload = await cloudinary.uploader.upload(
     //   req.file.path,
     //   (error, result) => {

@@ -2,6 +2,7 @@ const express = require('express');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const path = require('path');
+const dotenv= require('dotenv')
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -10,8 +11,11 @@ const hbs = exphbs.create({ helpers });
 const upload = require('./controllers/uploads/multer')
 const fs = require('fs');
 const { url } = require('inspector');
+dotenv.config()
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended:  false }));
 const PORT = process.env.PORT || 3001;
 
 const sess = {
@@ -24,8 +28,7 @@ const sess = {
   }),
 };
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

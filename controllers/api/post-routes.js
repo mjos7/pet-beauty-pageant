@@ -6,6 +6,12 @@ var multer = require("multer");
 var upload = multer({ dest: "uploads/" }); 
 const fs = require("fs");
  const cloudinary = require("cloudinary").v2;
+
+ cloudinary.config({
+   cloud_name : process.env.CLOUD_NAME,
+   api_key: process.env.CLOUDINARY_API_KEY,
+   api_secret: process.env.CLOUDINARY_API_SECRET
+ })
 require('dotenv').config();
 
 // get all users
@@ -94,8 +100,9 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', /*withAuth*/ upload.fields([{ name: 'image', maxCount: 1 }]), async (req, res) => {
-console.log(req.file);
+router.post('/', /*withAuth*/ upload.single('image'), async (req, res) => {
+console.log('file data should be here ' , req.file);
+console.log('request body ', req.body)
   const upload = await cloudinary.uploader.upload(
     req.file.path,
     (error, result) => {
@@ -104,17 +111,17 @@ console.log(req.file);
     }
   );
   console.log(upload);
-  // Post.create({
-  //   name: req.body.name,
-  //   pet_type: req.body.pet_type,
-  //   user_id: req.session.user_id,
-  //   image: 
-  // })
-    // .then(dbPostData => res.json(dbPostData))
-    // .catch(err => {
-    //   console.log(err);
-    //   res.status(500).json(err);
-    // });
+  Post.create({
+    name: req.body.name,
+    pet_type: req.body.pet_type,
+    user_id: req.session.user_id,
+    image: upload.secure_url
+  })
+    .then(dbPostData => res.json(dbPostData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.put('/upvote', withAuth, (req, res) => {

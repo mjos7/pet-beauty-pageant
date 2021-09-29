@@ -2,6 +2,13 @@ var multer = require("multer");
 var upload = multer({ dest: "uploads/" }); 
 const fs = require("fs");
  const cloudinary = require("cloudinary").v2;
+ cloudinary.config(
+  {
+    cloud_name : process.env.CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+  }
+ )
 require('dotenv').config();
 
 const router = require('express').Router();

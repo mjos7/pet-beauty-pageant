@@ -140,6 +140,10 @@ header a {
   margin-left: 20px;
 }
 
+#post-form {
+  margin-bottom: 100px;
+}
+
 .image-btn {
   background-color: #aeaeae;
   margin-bottom: 30px;

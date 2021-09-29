@@ -4,10 +4,14 @@
     src='{{image}}'
     alt=''
   />
+  
   <div class='title'>
+    {{!-- {{#if loggedIn}} --}}
     <button id='vote-btn' class="upvote-btn vote ">Vote
       <i class='fas fa-chevron-circle-up fa-1x'></i>
       </button>
+    {{!-- {{/if}} --}}
+
     <a href='/post/{{id}}'><h1>{{name}}</h1></a>
     <span class="pet-type">&nbsp;&nbsp;({{pet_type}})</span>
     <div class='meta votes'>
@@ -26,7 +30,3 @@
   </div>
 
 </article>
-
-{{!-- {{#if loggedIn}}
-  <script src='/js/upvote.js'></script>
-{{/if}} --}}

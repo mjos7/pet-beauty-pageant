@@ -156,6 +156,7 @@ header a {
 textarea,
 input {
   padding: 0.5%;
+  width: 250px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
@@ -230,6 +231,13 @@ main {
   font-style: italic;
   font-size: 90%;
   color: #7d7d7d;
+}
+
+#login-submit,
+#signup-submit {
+  margin-top: 20px;
+  width: 250px;
+  margin-right: 10px;
 }
 
 .edit-link {

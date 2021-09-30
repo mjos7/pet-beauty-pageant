@@ -3,7 +3,7 @@
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <title>Pet Beauty Pageant</title>
+    <title>Pawfect: Pet Beauty Pageant</title>
     <link rel='stylesheet' href='/styles/style.css' />
     <script
       src='https://kit.fontawesome.com/c663089620.js'
@@ -15,15 +15,15 @@
     <div class='wrapper'>
       <header class='header'>
         <h1>
-          <a href='/'>Pet Beauty Pageant</a>
+          <a href='/'>Let's Be Pawfect</a>
         </h1>
-        <h2 id='title'>Flaunt Your Stuff</h2>
+        <h2 id='title'>Flaunt Your Stuff!</h2>
         <nav>
           {{#if loggedIn}}
-            <a href='/dashboard'>dashboard</a>
-            <button id='logout' class='btn-no-style'>logout</button>
+            <a href='/dashboard'>Dashboard</a>
+            <button id='logout' class='btn-no-style'>Logout</button>
           {{else}}
-            <a href='/login'>login</a>
+            <a href='/login'>Login</a>
           {{/if}}
         </nav>
       </header>
@@ -31,7 +31,7 @@
         {{{body}}}
       </main>
       <footer>
-        Thanks for visiting!
+        Thanks For Visiting!
       </footer>
     </div>
     {{#if loggedIn}}

@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS pet_beauty_pageant_db;
+DROP DATABASE IF EXISTS pawfect_db;
 
-CREATE DATABASE pet_beauty_pageant_db;
+CREATE DATABASE pawfect_db;

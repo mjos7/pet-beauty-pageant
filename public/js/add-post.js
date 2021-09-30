@@ -9,19 +9,32 @@ async function newFormHandler(event) {
   formData.append('name', name);
   formData.append('pet_type', pet_type);
   formData.append('image', image);
-console.log(formData, name, pet_type, image);
-  const response = await fetch(`/api/posts`, {
-    method: 'POST',
-    body: formData,
-  });
 
-  if (response.ok) {
-    document.location.replace('/dashboard');
-  } else {
-    alert(response.statusText);
-  }
+console.log(formData, name, pet_type, image);
+
+//   const response = await fetch(`/api/posts`, {
+//     method: 'POST',
+//     body: formData,
+//   });
+
+//   if (response.ok) {
+//     document.location.replace('/dashboard');
+//   } else {
+//     alert(response.statusText);
+//   }
+// }
+
+const imageInput = await fetch(`/image/upload-images`, {
+  method: 'POST',
+  body: formData,
+})
+if (imageInput.ok) {
+  document.location.replace('/dashboard');
+} else {
+  alert(imageInput.statusText);
 }
 
 document
   .querySelector('.new-post-form')
-  .addEventListener('submit', newFormHandler);
+  .addEventListener('submit', newFormHandler)
+};

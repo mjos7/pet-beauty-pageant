@@ -33,16 +33,6 @@ const userdata = [
     password: 'password123',
   },
   {
-    username: 'mpergens6',
-    email: 'hnapleton6@feedburner.com',
-    password: 'password123',
-  },
-  {
-    username: 'tpenniell7',
-    email: 'kperigo7@china.com.cn',
-    password: 'password123',
-  },
-  {
     username: 'msabbins8',
     email: 'lmongain8@google.ru',
     password: 'password123',

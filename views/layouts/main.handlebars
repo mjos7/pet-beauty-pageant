@@ -18,13 +18,16 @@
           <h1>
             <a href='/'>Pet Beauty Pageant</a>
           </h1>
+          <div>
+            {{#if loggedIn}}
 
-          {{#if loggedIn}}
-            <a href='/dashboard'>Dashboard</a>
-            <button id='logout' class='btn-no-style'>Logout</button>
-          {{else}}
-            <a href='/login'>Login</a>
-          {{/if}}
+              <a href='/dashboard'>Dashboard</a>
+              <button id='logout' class='btn-no-style'>Logout</button>
+            {{else}}
+              <a href='/login'>Login</a>
+
+            {{/if}}
+          </div>
         </nav>
         <h2 id='title'>Flaunt Your Stuff!</h2>
       </header>

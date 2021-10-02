@@ -4,7 +4,7 @@
   "description": "A beauty pageant app for pet lovers to upload their favourite animal pictures, comment and vote on their favorite.",
   "main": "server.js",
   "scripts": {
-    "start": "server.js",
+    "start": "node server.js",
     "heroku-postbuild": "npm run seeds",
     "seeds": "node seeds/index.js",
     "dev": "nodemon index",

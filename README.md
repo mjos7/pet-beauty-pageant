@@ -53,6 +53,10 @@ Express.js was used for the server and MySQL for the database along with Sequeli
 - Dotenv
 - bcrypt
 
+## Team
+
+[Mark Joseph](https://github.com/mjos7) - [Kyle Kilmartin](https://github.com/KyleKilmartin371) - [MinhHa Pham](https://github.com/minhhap) - [Daniel Snowden](https://github.com/snowden421)
+
 ## Questions
 
 Please don't hesitate to reach out if you have any suggestions or feedback

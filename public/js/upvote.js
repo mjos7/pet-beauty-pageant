@@ -1,3 +1,4 @@
+// Upvote by Post ID
 async function upvoteClickHandler(event) {
   event.preventDefault();
 
@@ -21,6 +22,7 @@ async function upvoteClickHandler(event) {
   }
 }
 
+// Event listeners
 document
   .querySelector('.upvote-btn')
   .addEventListener('click', upvoteClickHandler);

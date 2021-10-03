@@ -1,3 +1,4 @@
+// Signup by Username, Email and Password
 async function signupFormHandler(event) {
   event.preventDefault();
 

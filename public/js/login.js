@@ -1,6 +1,7 @@
 async function loginFormHandler(event) {
   event.preventDefault();
 
+  // Login by Email and password
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
 
@@ -23,7 +24,6 @@ async function loginFormHandler(event) {
 }
 
 // Event listeners
-
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);

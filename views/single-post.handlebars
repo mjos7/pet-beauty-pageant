@@ -1,5 +1,8 @@
+
+{{!-- Post HTML --}}
 {{> post-info post}}
 
+{{!-- User cannot comment or vote if not logged in --}}
 {{#if loggedIn}}
   <form class='comment-form'>
     <div>

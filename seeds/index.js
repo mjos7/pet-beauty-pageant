@@ -5,6 +5,7 @@ const seedVotes = require('./vote-seeds');
 
 const sequelize = require('../config/connection');
 
+// Captures seeds from other files
 const seedAll = async () => {
   await sequelize.sync({ force: true });
   console.log('--------------');

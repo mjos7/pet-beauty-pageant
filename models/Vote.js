@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class Vote extends Model {}
 
+// Vote model
 Vote.init(
   {
     id: {

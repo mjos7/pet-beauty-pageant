@@ -2,19 +2,20 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Post, User, Comment, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
-var multer = require("multer");
-var upload = multer({ dest: "uploads/" }); 
-const fs = require("fs");
- const cloudinary = require("cloudinary").v2;
+var multer = require('multer');
+var upload = multer({ dest: 'uploads/' });
+const fs = require('fs');
+const cloudinary = require('cloudinary').v2;
 
- cloudinary.config({
-   cloud_name : process.env.CLOUD_NAME,
-   api_key: process.env.CLOUDINARY_API_KEY,
-   api_secret: process.env.CLOUDINARY_API_SECRET
- })
+// cloudinary config to upload images
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 require('dotenv').config();
 
-// get all users
+// Get all posts route
 router.get('/', (req, res) => {
   console.log('======================');
   Post.findAll({
@@ -54,6 +55,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// Get post by ID route
 router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -100,9 +102,10 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// Upload image route
 router.post('/', /*withAuth*/ upload.single('image'), async (req, res) => {
-console.log('file data should be here ' , req.file);
-console.log('request body ', req.body)
+  console.log('file data should be here ', req.file);
+  console.log('request body ', req.body);
   const upload = await cloudinary.uploader.upload(
     req.file.path,
     (error, result) => {
@@ -115,7 +118,7 @@ console.log('request body ', req.body)
     name: req.body.name,
     pet_type: req.body.pet_type,
     user_id: req.session.user_id,
-    image: upload.secure_url
+    image: upload.secure_url,
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -124,6 +127,7 @@ console.log('request body ', req.body)
     });
 });
 
+// Upvote route
 router.put('/upvote', withAuth, (req, res) => {
   // make sure the session exists first
   if (req.session) {
@@ -140,6 +144,7 @@ router.put('/upvote', withAuth, (req, res) => {
   }
 });
 
+// Update post by ID
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
@@ -164,6 +169,7 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
+// Delete post by ID
 router.delete('/:id', withAuth, (req, res) => {
   Post.destroy({
     where: {

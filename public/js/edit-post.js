@@ -1,6 +1,7 @@
 async function editFormHandler(event) {
   event.preventDefault();
 
+  // Edit post based by post ID
   const name = document.querySelector('input[name="post-name"]').value.trim();
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
@@ -22,6 +23,7 @@ async function editFormHandler(event) {
   }
 }
 
+// Event listeners
 document
   .querySelector('.edit-post-form')
   .addEventListener('submit', editFormHandler);
